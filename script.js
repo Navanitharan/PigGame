@@ -16,12 +16,20 @@ score0Ele.textContent=0;
 score1Ele.textContent=0
 diceEl.classList.add("hidden")
 
+let dicees=["http://www.clker.com/cliparts/X/w/P/Y/q/H/dice-1-md.png",
+            "http://www.clker.com/cliparts/X/V/S/C/I/x/dice-2-md.png",
+            "http://www.clker.com/cliparts/n/O/d/R/Y/c/dice-3-md.png",
+            "http://www.clker.com/cliparts/D/j/Z/R/5/P/dice-4-md.png",
+            "http://www.clker.com/cliparts/U/N/J/F/T/x/dice-5-md.png",
+            "http://www.clker.com/cliparts/Y/O/V/X/F/D/dice-6-md.png"]
+    
+
 let score;
 let currentScore;
 let activePlayer;
 let playing;
 
-let init = function(){
+let init = async function(){
     score = [0,0];
     currentScore = 0;
     activePlayer = 0;
@@ -37,6 +45,7 @@ let init = function(){
     player1El.classList.remove('player--winner')
     player0El.classList.add('player--active')
     player1El.classList.remove('player--active')
+
     
 };
 init();
@@ -57,7 +66,7 @@ btnRoll.addEventListener('click',function(){
 
         //Displaying the Dice
         diceEl.classList.remove("hidden");
-        diceEl.src=`dice-${dice}.png`;
+        diceEl.src=dicees[dice-1];
 
         //check for rolled 1
         if(dice!==1){
